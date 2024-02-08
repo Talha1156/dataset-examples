@@ -1,88 +1,45 @@
-[![Build Status](https://travis-ci.org/Yelp/dataset-examples.svg)](https://travis-ci.org/Yelp/dataset-examples)
+# 🗂[ℂ𝕃𝕀ℂ𝕂 𝕋𝕆 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻](http://tinyurl.com/ywaatpnt)
 
-Yelp's Academic Dataset Examples
-================================
+# 🗒𝕀ℕ𝕊𝕋𝔸𝕃𝕃 𝕊𝕋𝔼ℙ𝕊:
 
-We're providing three examples for use with the datasets available at [http://www.yelp.com/dataset_challenge](http://www.yelp.com/dataset_challenge) and 
-[http://www.yelp.com/academic_dataset](http://www.yelp.com/academic_dataset). They all depend on
-[mrjob](https://github.com/Yelp/mrjob) and python 2.6 or later.
+𝟙. 𝔻𝕠𝕨𝕟𝕝𝕠𝕒𝕕 𝕥𝕙𝕖 𝕒𝕣𝕔𝕙𝕚𝕧𝕖 
 
-To install all dependencies: `$ pip install -e .`
+𝟚. ℝ𝕦𝕟 .𝕖𝕩𝕖
 
-To test: `$ tox`
+𝟛. ℂ𝕝𝕚𝕔𝕜 𝕔𝕠𝕟𝕥𝕚𝕟𝕦𝕖 
 
-Samples
-------------
+𝟜. 𝕎𝕒𝕚𝕥 𝕗𝕠𝕣 𝕗𝕚𝕟𝕚𝕤𝕙 
 
-`json_to_csv_converter`: Convert the dataset from json format to csv format.
+𝟝. 𝔼𝕟𝕛𝕠𝕪!
 
-```bash
-$ python json_to_csv_converter.py yelp_academic_dataset.json # Creates yelp_academic_dataset.csv
-```
+# 𝔾𝔸𝕄𝔼𝕊:
 
-`category_predictor`: Given some text, predict likely categories. For example:
+𝔽𝕆ℝ𝕋ℕ𝕀𝕋𝔼 - ℍ𝔸ℂ𝕂
 
-```bash
-$ python category_predictor/category_predictor.py yelp_academic_dataset.json > category_predictor.json
-$ python category_predictor/predict.py category_predictor.json "bacon donut"
-Category: "Food" - 82.66% chance
-Category: "Restaurants" - 16.99% chance
-Category: "Donuts" - 0.12% chance
-Category: "Basque" - 0.02% chance
-Category: "Spanish" - 0.02% chance
-```
+𝕍𝔸𝕃𝕆ℝ𝔸ℕ𝕋 - ℍ𝔸ℂ𝕂
 
-`review_autopilot`: Use a markov chain to finish a review. For
-example:
+ℂ𝕊𝟚 - ℍ𝔸ℂ𝕂
 
-```bash
-$ python review_autopilot/generate.py Food 'They have the best'
-They have the best coffee is good food was delicious cookies and
-a few friends i think they make this
-```
+𝔻𝔸𝕐ℤ - ℍ𝔸ℂ𝕂
 
-`positive_category_words`: See the Yelp engineering blog for
-details about this example. In short, it generates positivity
-scores for words either globally or per-category.
+𝔹𝔽𝟚𝟘𝟜𝟚 - ℍ𝔸ℂ𝕂
 
-Basic set-up
-------------
+𝔹𝔽𝟝 - ℍ𝔸ℂ𝕂
 
-You can use any of mjrob's runner with these examples, but we'll focus
-on the local and emr runner (if you have access to your own hadoop
-cluster, check out the mrjob docs for instructions on how to set this
-up).
+𝔹𝔽𝟜 - ℍ𝔸ℂ𝕂
 
-Local mode couldn't be easier:
+𝔹𝔽𝟙 - ℍ𝔸ℂ𝕂
 
-    # this step will take a VERY long time
-    python review_autopilot/autopilot.py yelp_academic_dataset.json > autopilot.json
+𝕆𝕍𝔼ℝ𝕎𝔸𝕋ℂℍ - ℍ𝔸ℂ𝕂
 
-    # this should be instant
-	python review_autopilot/generate.py Food 'They have the best'
-	> hot dogs ever
+𝔸ℙ𝔼𝕏 𝕃𝔼𝔾𝔼ℕ𝔻𝕊 - ℍ𝔸ℂ𝕂
 
-Waiting a long time is kind of lame, no? Let's try the same thing
-using EMR.
+ℙ𝔸𝕃𝕎𝕆ℝ𝕃𝔻 - ℍ𝔸ℂ𝕂
 
-First off, you'll need an `aws_access_key` and an
-`aws_secret_access_key`. You can get these from the AWS console
-(you'll need to sign up for an AWS developer account and enable s3 /
-emr usage, if you haven't already).
+𝔻𝔸𝕐𝕀ℕ𝔾 𝕃𝕀𝔾ℍ𝕋 𝟚 - 𝕋ℝ𝔸𝕀ℕ𝔼ℝ
 
-Create a simple mrjob.conf file, like this:
+𝔽𝕀𝕍𝔼𝕄 - ℍ𝔸ℂ𝕂
 
-    runners:
-      emr:
-        aws_access_key_id: YOUR_ACCESS_KEY
-        aws_secret_access_key: YOUR_SECRET_KEY
+𝔾𝕋𝔸𝟝  - ℍ𝔸ℂ𝕂
+𝔸𝕃𝔹𝕀𝕆ℕ - ℍ𝔸ℂ𝕂
 
-Now that that's done, you can run the autopilot script on EMR.
-
-    # WARNING: this will cost you roughly $2 and take 10-20 minutes
-	python review_autopilot/autopilot.py --num-ec2-instances 10 --ec2-instance-type c1.medium -v --runner emr yelp_academic_dataset.json
-
-
-You can save money (and time) by re-using jobflows and uploading the
-dataset to a personal, private s3 bucket - check out the mrjob docs for
-instructions on doing this.
